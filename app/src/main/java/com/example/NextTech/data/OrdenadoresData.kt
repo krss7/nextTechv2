@@ -1,18 +1,18 @@
 package com.example.NextTech.data
 
-import com.example.NextTech.R
 
 /**
  * Una lista predefinida de objetos [Ordenador] que sirve como fuente de datos de la aplicación.
  * Esta lista contiene varios modelos de portátiles de diferentes fabricantes como Apple, Dell, HP, etc.,
  * con todos los modelos con especificaciones detalladas para su visualización en detallesPage.
  */
+/*
 val ordenadores = listOf(
     // Apple
     Ordenador(
         id = "1",
         nombre = "Apple MacBook Air 13\" (M2)",
-        imagenPrincipal = R.drawable.macbook_air_m2,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador","Chip M2 de Apple con CPU de 8 núcleos y GPU de 8 núcleos"),
             Especificacion("Memoria RAM", "8 GB de memoria unificada (ampliable a 16 GB o 24 GB)"),
@@ -26,7 +26,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "2",
         nombre = "Apple MacBook Pro 14\" (M3 Pro)",
-        imagenPrincipal = R.drawable.macbook_pro_14,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Chip M3 Pro de Apple con CPU de hasta 12 núcleos y GPU de hasta 18 núcleos"),
             Especificacion("Memoria RAM", "18 GB de memoria unificada (ampliable a 36 GB)"),
@@ -40,7 +40,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "3",
         nombre = "Apple MacBook Pro 16\" (M3 Max)",
-        imagenPrincipal = R.drawable.macbook_pro_16,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Chip M3 Max de Apple con CPU de 16 núcleos y GPU de 40 núcleos"),
             Especificacion("Memoria RAM", "48 GB de memoria unificada (ampliable a 64 GB o 128 GB)"),
@@ -56,7 +56,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "4",
         nombre = "Dell XPS 13 (9320)",
-        imagenPrincipal = R.drawable.dell_xps_13_9320,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1260P de 12.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5 a 5200 MHz"),
@@ -70,7 +70,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "5",
         nombre = "Dell XPS 15 (9530)",
-        imagenPrincipal = R.drawable.dell_xps_15_9530,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13900H de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB DDR5 a 4800 MHz"),
@@ -84,7 +84,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "6",
         nombre = "Dell Alienware m16 R1 (Gaming)",
-        imagenPrincipal = R.drawable.dell_alienware_m16_r1,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "AMD Ryzen 9 7845HX (12 núcleos, 24 hilos)"),
             Especificacion("Memoria RAM", "32 GB DDR5 a 4800 MHz"),
@@ -98,7 +98,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "7",
         nombre = "Dell Inspiron 15",
-        imagenPrincipal = R.drawable.dell_inspiron_15,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i5-1235U de 12.ª generación"),
             Especificacion("Memoria RAM", "8 GB DDR4 a 2666 MHz"),
@@ -114,7 +114,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "8",
         nombre = "HP Spectre x360 14",
-        imagenPrincipal = R.drawable.hp_spectre_14,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1355U (hasta 5,0 GHz, 10 núcleos)"),
             Especificacion("Memoria RAM", "16 GB LPDDR5-5200 MHz"),
@@ -128,7 +128,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "9",
         nombre = "HP Envy 16",
-        imagenPrincipal = R.drawable.hp_envy_16,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13700H (hasta 5,0 GHz, 14 núcleos)"),
             Especificacion("Memoria RAM", "16 GB DDR5-5200 MHz"),
@@ -142,7 +142,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "10",
         nombre = "HP Omen Transcend 16 (Gaming)",
-        imagenPrincipal = R.drawable.hp_omen_trascend_16,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13900HX (hasta 5,4 GHz, 24 núcleos)"),
             Especificacion("Memoria RAM", "32 GB DDR5-5600 MHz"),
@@ -156,7 +156,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "11",
         nombre = "HP Pavilion Aero 13",
-        imagenPrincipal = R.drawable.hp_pavilion_aero_13,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "AMD Ryzen 7 7735U (hasta 4,75 GHz)"),
             Especificacion("Memoria RAM", "16 GB LPDDR5-6400 MHz"),
@@ -172,7 +172,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "12",
         nombre = "Lenovo ThinkPad X1 Carbon Gen 11",
-        imagenPrincipal = R.drawable.lenovo_thinkpad_x1_carbon_gen_11,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1355U de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB LPDDR5-6000 MHz"),
@@ -186,7 +186,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "13",
         nombre = "Lenovo Yoga 9i (14\")",
-        imagenPrincipal = R.drawable.lenovo_yoga_9i_14,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1360P de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5-5200 MHz"),
@@ -200,7 +200,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "14",
         nombre = "Lenovo Legion Pro 7i Gen 8 (Gaming)",
-        imagenPrincipal = R.drawable.lenovo_legion_pro_7i_gen_8,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13900HX de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB DDR5-5600 MHz"),
@@ -214,7 +214,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "15",
         nombre = "Lenovo IdeaPad Slim 5",
-        imagenPrincipal = R.drawable.lenovo_ideapad_slim5,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "AMD Ryzen 5 7530U"),
             Especificacion("Memoria RAM", "16 GB DDR4-3200 MHz"),
@@ -230,7 +230,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "16",
         nombre = "Asus ROG Zephyrus G14 (Gaming)",
-        imagenPrincipal = R.drawable.asus_rog_zephyrus_g14,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "AMD Ryzen 9 7940HS (8 núcleos, 16 hilos)"),
             Especificacion("Memoria RAM", "16 GB DDR5 a 4800 MHz"),
@@ -244,7 +244,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "17",
         nombre = "Asus Zenbook 14 OLED",
-        imagenPrincipal = R.drawable.asus_zenbook_14_oled,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1360P de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5 integrada"),
@@ -258,7 +258,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "18",
         nombre = "Asus ProArt Studiobook 16",
-        imagenPrincipal = R.drawable.asus_proart_studiobook_16_oled,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13980HX de 13.ª generación"),
             Especificacion("Memoria RAM", "64 GB DDR5 a 4800 MHz"),
@@ -272,7 +272,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "19",
         nombre = "Asus TUF Gaming A15",
-        imagenPrincipal = R.drawable.asus_tuf_gaming_a15,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "AMD Ryzen 7 7735HS (8 núcleos, 16 hilos)"),
             Especificacion("Memoria RAM", "16 GB DDR5 a 4800 MHz"),
@@ -288,7 +288,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "20",
         nombre = "Acer Swift Go 14",
-        imagenPrincipal = R.drawable.acer_swift_go_14,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13700H de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5"),
@@ -302,7 +302,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "21",
         nombre = "Acer Predator Helios 16 (Gaming)",
-        imagenPrincipal = R.drawable.acer_predator_helios_16,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13900HX de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB DDR5 a 5600 MHz"),
@@ -316,7 +316,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "22",
         nombre = "Acer Aspire 5",
-        imagenPrincipal = R.drawable.acer_aspire_5,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i5-1335U de 13.ª generación"),
             Especificacion("Memoria RAM", "8 GB DDR4 (ampliable a 32 GB)"),
@@ -332,7 +332,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "23",
         nombre = "Microsoft Surface Laptop 5",
-        imagenPrincipal = R.drawable.microsoft_surface_laptop_5,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1255U de 12.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5x"),
@@ -346,7 +346,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "24",
         nombre = "Microsoft Surface Laptop Studio 2",
-        imagenPrincipal = R.drawable.microsoft_surface_laptop_studio_2,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13700H de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB LPDDR5x"),
@@ -362,7 +362,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "25",
         nombre = "Razer Blade 15 (Gaming)",
-        imagenPrincipal = R.drawable.razer_blade_15,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13800H de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB DDR5 a 5200 MHz"),
@@ -376,7 +376,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "26",
         nombre = "Razer Blade 18 (Gaming)",
-        imagenPrincipal = R.drawable.razer_blade_18,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13980HX de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB DDR5 a 5600 MHz"),
@@ -392,7 +392,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "27",
         nombre = "MSI Titan GT77 HX (Gaming)",
-        imagenPrincipal = R.drawable.msi_titan_gt77_hx_gaming,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13980HX de 13.ª generación"),
             Especificacion("Memoria RAM", "64 GB DDR5 (4 slots, ampliable a 128 GB)"),
@@ -406,7 +406,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "28",
         nombre = "MSI Katana 15 (Gaming)",
-        imagenPrincipal = R.drawable.msi_katana_15,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13620H de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB DDR5 a 4800 MHz"),
@@ -420,7 +420,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "29",
         nombre = "MSI Prestige 14 Evo",
-        imagenPrincipal = R.drawable.msi_prestige_14_evo,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-13700H de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5 integrada"),
@@ -436,7 +436,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "30",
         nombre = "Samsung Galaxy Book3 Ultra",
-        imagenPrincipal = R.drawable.samsung_galaxy_book3_ultra,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i9-13900H de 13.ª generación"),
             Especificacion("Memoria RAM", "32 GB LPDDR5"),
@@ -450,7 +450,7 @@ val ordenadores = listOf(
     Ordenador(
         id = "31",
         nombre = "Samsung Galaxy Book3 Pro 360",
-        imagenPrincipal = R.drawable.samsung_galaxy_book3_pro_360,
+        imagenUrl = "http://10.0.2.2:5131/images/1",
         especificaciones = listOf(
             Especificacion("Procesador", "Intel Core i7-1360P de 13.ª generación"),
             Especificacion("Memoria RAM", "16 GB LPDDR5"),
@@ -462,3 +462,6 @@ val ordenadores = listOf(
         )
     )
 )
+
+
+ */

@@ -1,6 +1,5 @@
 package com.example.NextTech.myComponents
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,14 +17,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.NextTech.data.Ordenador
-import com.example.NextTech.R
+import coil.compose.AsyncImage
 
 @Composable
 fun TarjetaVertical(ordenador: Ordenador, onClick: () -> Unit) {
@@ -37,8 +35,8 @@ fun TarjetaVertical(ordenador: Ordenador, onClick: () -> Unit) {
             .clickable(enabled = clicado) { onClick() },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = painterResource(id = ordenador.imagenPrincipal),
+        AsyncImage(
+            model = ordenador.imagenUrl,
             contentDescription = ordenador.nombre,
             modifier = Modifier
                 .size(100.dp)
@@ -65,8 +63,8 @@ fun TarjetaHorizontal(ordenador: Ordenador, onClick: () -> Unit) {
             .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Image(
-            painter = painterResource(id = ordenador.imagenPrincipal),
+        AsyncImage(
+            model = ordenador.imagenUrl,
             contentDescription = ordenador.nombre,
             modifier = Modifier
                 .size(80.dp)
@@ -83,9 +81,11 @@ fun TarjetaHorizontal(ordenador: Ordenador, onClick: () -> Unit) {
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
-fun TarjetaVerticalPreview() {
+fun TarjetaVerticalPreview() {/*
     TarjetaVertical(
         ordenador = Ordenador(
             id = "1",
@@ -94,19 +94,25 @@ fun TarjetaVerticalPreview() {
             especificaciones = emptyList()
         ),
         onClick = { }
-    )
+    ) */
 }
+
+
+
 
 @Preview(showBackground = true)
 @Composable
-fun TarjetaHorizontalPreview() {
+fun TarjetaHorizontalPreview() {/*
     TarjetaHorizontal(
-        ordenador = Ordenador(
-            id = "1",
-            imagenPrincipal = R.drawable.macbook_air_m2,
-            nombre = "Apple MacBook Air 13\" (M2)",
-            especificaciones = emptyList()
-        ),
-        onClick = { }
-    )
+    ordenador = Ordenador(
+    id = "1",
+    imagenPrincipal = R.drawable.macbook_air_m2,
+    nombre = "Apple MacBook Air 13\" (M2)",
+    especificaciones = emptyList()
+    ),
+    onClick = { }
+) */
 }
+
+
+

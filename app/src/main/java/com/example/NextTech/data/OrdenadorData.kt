@@ -5,8 +5,9 @@ package com.example.NextTech.data
  */
 data class Ordenador(
     val id: String,
-    val imagenPrincipal: Int,
+    val imagenPrincipal: String,
     val nombre: String,
+    val imagenUrl: String,
     val especificaciones: List<Especificacion>
 )
 

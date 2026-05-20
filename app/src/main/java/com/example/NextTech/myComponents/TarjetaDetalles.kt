@@ -1,7 +1,7 @@
 package com.example.NextTech.myComponents
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
+
+import coil.compose.AsyncImage
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -44,8 +43,8 @@ fun Detalles(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Image(
-            painter = painterResource(id = ordenador.imagenPrincipal),
+        AsyncImage(
+            model = ordenador.imagenUrl,
             contentDescription = ordenador.nombre,
 
             modifier = Modifier
@@ -73,5 +72,5 @@ fun Detalles(
 @Preview
 @Composable
 fun DetallesPreview() {
-   // Detalles(ordenadorId = "1")
+  //  Detalles(imagenUrl = " ")
 }

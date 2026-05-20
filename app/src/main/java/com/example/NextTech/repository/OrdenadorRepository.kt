@@ -15,7 +15,7 @@ class OrdenadorRepository {
             val dtoList = api.getAll("ordenadores")
 
             val lista = dtoList.map { it.toOrdenador() }
-                println("ORDENADORES API: ${lista.size}")
+
                 lista
         } catch (e: Exception) {
             e.printStackTrace()
