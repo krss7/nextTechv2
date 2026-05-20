@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.NextTech.myComponents.Buscador
 import com.example.NextTech.myComponents.ButtomAppBarNav
-import com.example.NextTech.myComponents.ListVertical
+import com.example.NextTech.myComponents.ListaVertical
 import com.example.NextTech.viewmodels.BusquedaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -21,7 +21,7 @@ import com.example.NextTech.viewmodels.BusquedaViewModel
 fun BusquedaPage(
     modifier: Modifier = Modifier,
     viewModel: BusquedaViewModel = viewModel(),
-    onNavigateToDetails: (Int) -> Unit = {},
+    onNavigateToDetails: (String) -> Unit = {},
     onNavigateToHome: () -> Unit = {},
     onNavigateToSearch: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {}
@@ -45,8 +45,8 @@ fun BusquedaPage(
                 query = uiState.searchText,
                 onQueryChange = { viewModel.onSearchTextChange(it) }
             )
-            ListVertical(
-                searchQuery = uiState.searchText,
+            ListaVertical(
+                ordenadores = uiState.ordenadoresFiltrados,
                 onItemClick = onNavigateToDetails
             )
         }

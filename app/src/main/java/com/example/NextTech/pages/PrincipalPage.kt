@@ -12,15 +12,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.NextTech.data.Ordenador
 import com.example.NextTech.myComponents.ButtomAppBarNav
-import com.example.NextTech.myComponents.ListHorizontal
+import com.example.NextTech.myComponents.ListaHorizontal
 import com.example.NextTech.myComponents.TopAppTitle
 import com.example.NextTech.viewmodels.PrincipalViewModel
 
 @Composable
 fun PrincipalPage(
     modifier: Modifier = Modifier,
-    viewModel: PrincipalViewModel = viewModel(), // Cambiado a estándar
-    onNavigateToDetails: (Int) -> Unit = {},
+    viewModel: PrincipalViewModel = viewModel(),
+    onNavigateToDetails: (String) -> Unit = {},
     onNavigateToSearch: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {}
 ) {
@@ -39,9 +39,9 @@ fun PrincipalPage(
         }
     ) { innerPadding ->
         LazyColumn(modifier = modifier.padding(innerPadding)) {
-            items(uiState.categorias) { categoria ->
+            items(uiState.ordenadoresPorCategoria.keys.toList()) { categoria ->
                 val listaDeOrdenadores: List<Ordenador> = uiState.ordenadoresPorCategoria[categoria] ?: emptyList()
-                ListHorizontal(
+                ListaHorizontal(
                     titulo = categoria,
                     ordenadores = listaDeOrdenadores,
                     onItemClick = onNavigateToDetails

@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class PrincipalViewModel : ViewModel() {
 
@@ -21,16 +23,22 @@ class PrincipalViewModel : ViewModel() {
     }
 
     private fun cargarDatos() {
-        val todos = ordenadorRepository.obtenerOrdenadores()
-        
-        val categorizados: Map<String, List<Ordenador>> = mapOf(
-            "Más Vendidos" to todos.take(5),
-            "Populares" to todos.shuffled().take(5),
-            "Nuevos Lanzamientos" to todos.takeLast(5)
-        )
 
-        _uiState.update { it.copy(
-            ordenadoresPorCategoria = categorizados
-        ) }
+        viewModelScope.launch {
+
+            val todos = ordenadorRepository.obtenerOrdenadores()
+
+            val categorizados: Map<String, List<Ordenador>> = mapOf(
+                "Más Vendidos" to todos.take(8),
+                "Populares" to todos.shuffled().take(8),
+                "Nuevos Lanzamientos" to todos.takeLast(8)
+            )
+
+            _uiState.update {
+                it.copy(
+                    ordenadoresPorCategoria = categorizados
+                )
+            }
+        }
     }
 }

@@ -42,7 +42,7 @@ fun CampoContrasenha(
     modifier: Modifier = Modifier,
     esError: Boolean = false
 ) {
-    // Estado para controlar la visibilidad, interno a este componente
+
     var esVisible by remember { mutableStateOf(false) }
 
     Text(text = label, modifier = Modifier.padding(bottom = 10.dp), fontSize = 25.sp)

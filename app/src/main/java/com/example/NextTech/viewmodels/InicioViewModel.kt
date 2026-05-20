@@ -22,9 +22,14 @@ class InicioViewModel : ViewModel() {
     }
 
     private fun cargarOrdenadores() {
-        _uiState.update { it.copy(
-            ordenadores = ordenadorRepository.obtenerOrdenadores()
-        ) }
+        viewModelScope.launch {
+            val lista = ordenadorRepository.obtenerOrdenadores()
+            _uiState.update {
+                it.copy(
+                    ordenadores = lista
+                )
+            }
+        }
     }
 
     fun login(email: String, pass: String, onSuccess: () -> Unit) {

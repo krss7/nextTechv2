@@ -30,7 +30,7 @@ import com.example.NextTech.data.Especificacion
 @Composable
 fun TablaEspecificaciones(especificaciones: List<Especificacion>) {
     Column(
-        modifier = Modifier.fillMaxWidth() // La tabla ahora ocupa todo el ancho
+        modifier = Modifier.fillMaxWidth()
     ) {
         // --- Fila de la Cabecera ---
         Row(

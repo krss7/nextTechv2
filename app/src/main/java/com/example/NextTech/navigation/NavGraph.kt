@@ -48,7 +48,7 @@ fun NavGraph(navController: NavHostController) {
         composable(Screen.Principal.route) {
             PrincipalPage(
                 onNavigateToDetails = { id ->
-                    navController.navigate(Screen.Detalles.createRoute(id.toString()))
+                    navController.navigate(Screen.Detalles.createRoute(id))
                 },
                 onNavigateToSearch = {
                     navController.navigate(Screen.Busqueda.route) {
@@ -66,7 +66,7 @@ fun NavGraph(navController: NavHostController) {
         composable(Screen.Busqueda.route) {
             BusquedaPage(
                 onNavigateToDetails = { id ->
-                    navController.navigate(Screen.Detalles.createRoute(id.toString()))
+                    navController.navigate(Screen.Detalles.createRoute(id))
                 },
                 onNavigateToHome = {
                     navController.navigate(Screen.Principal.route) {
@@ -103,9 +103,16 @@ fun NavGraph(navController: NavHostController) {
 
         composable(
             route = Screen.Detalles.route,
-            arguments = listOf(navArgument("ordenadorId") { type = NavType.IntType })
+            arguments = listOf(
+                navArgument("ordenadorId") {
+                    type = NavType.StringType
+                }
+            )
         ) { backStackEntry ->
-            val id = backStackEntry.arguments?.getInt("ordenadorId") ?: 0
+
+            val id = backStackEntry.arguments
+                ?.getString("ordenadorId") ?: ""
+
             DetallesPage(
                 ordenadorId = id,
                 onNavigateBack = {

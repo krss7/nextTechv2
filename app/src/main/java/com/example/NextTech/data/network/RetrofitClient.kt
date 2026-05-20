@@ -1,4 +1,4 @@
-package com.example.NextTech.data.remote
+package com.example.NextTech.data.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

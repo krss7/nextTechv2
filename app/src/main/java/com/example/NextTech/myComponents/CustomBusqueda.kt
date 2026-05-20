@@ -31,40 +31,59 @@ import androidx.compose.ui.unit.dp
 fun Buscador(
     query: String = "",
     onQueryChange: (String) -> Unit = {}
-){
-    var internalQuery by remember { mutableStateOf(query) }
-    // Sincronizamos si cambia desde fuera (opcional, pero útil para resetear)
-    val displayQuery = if (query.isEmpty() && internalQuery.isNotEmpty()) internalQuery else query
-
-    var expanded by remember { mutableStateOf(false) }
+) {
 
     SearchBar(
         inputField = {
+
             SearchBarDefaults.InputField(
                 query = query,
-                onQueryChange = onQueryChange,
-                onSearch = { expanded = false },
-                expanded = expanded,
-                onExpandedChange = { expanded = it },
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
+
+                onQueryChange = {
+                    onQueryChange(it)
+                },
+
+                onSearch = {},
+
+                expanded = false,
+
+                onExpandedChange = {},
+
+                leadingIcon = {
+                    Icon(
+                        Icons.Default.Search,
+                        contentDescription = "Search"
+                    )
+                },
+
                 trailingIcon = {
+
                     if (query.isNotEmpty()) {
-                        IconButton(onClick = { onQueryChange("") }) {
-                            Icon(Icons.Default.Close, contentDescription = "Clear search")
+
+                        IconButton(
+                            onClick = {
+                                onQueryChange("")
+                            }
+                        ) {
+
+                            Icon(
+                                Icons.Default.Close,
+                                contentDescription = "Clear search"
+                            )
                         }
                     }
                 },
+
                 modifier = Modifier.fillMaxWidth()
             )
         },
-        expanded = expanded,
-        onExpandedChange = { expanded = it },
+
+        expanded = false,
+
+        onExpandedChange = {},
+
         modifier = Modifier.fillMaxWidth()
-    ) {
-        if (query.isNotEmpty()) {
-            Text("Buscando: $query", modifier = Modifier.padding(16.dp))
-        }
-    }
+    ) {}
 }
 
 @Preview

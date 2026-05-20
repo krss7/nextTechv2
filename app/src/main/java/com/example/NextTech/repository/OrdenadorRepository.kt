@@ -2,35 +2,41 @@ package com.example.NextTech.repository
 
 
 import com.example.NextTech.data.Ordenador
-import com.example.NextTech.data.ordenadores
-import com.example.NextTech.data.remote.JsonParser
-import com.example.NextTech.data.remote.RetrofitClient
+import com.example.NextTech.data.network.RetrofitClient
+import com.example.NextTech.data.network.toOrdenador
 
 class OrdenadorRepository {
 
     private val api = RetrofitClient.api
 
-    fun obtenerOrdenadores(): List<Ordenador> {
-        return ordenadores
-    }
+    suspend fun obtenerOrdenadores(): List<Ordenador> {
 
-    fun obtenerOrdenadorPorId(id: Int): Ordenador? {
-        return ordenadores.find { it.id == id.toString() }
-    }
-}
-
-
-/*
-
-suspend fun obtenerOrdenadores(): List<Ordenador> {
         return try {
-            val json = api.getAll("ordenadores")
-            JsonParser.parseOrdenadores(json)
+            val dtoList = api.getAll("ordenadores")
+
+            val lista = dtoList.map { it.toOrdenador() }
+                println("ORDENADORES API: ${lista.size}")
+                lista
         } catch (e: Exception) {
-            ordenadores
+            e.printStackTrace()
+            emptyList()
         }
     }
 
+    suspend fun obtenerOrdenadorPorId(id: String): Ordenador? {
+        return try {
+            val dto = api.getById(
+                carpeta = "ordenadores",
+                id = id
+            )
+            dto.toOrdenador()
+        } catch (e: Exception) {
 
+            e.printStackTrace()
 
-*/
+            null
+        }
+    }
+
+}
+

@@ -1,0 +1,19 @@
+package com.example.NextTech.data.network
+
+import retrofit2.http.GET
+import retrofit2.http.Path
+
+interface ApiService {
+
+    @GET("json/{carpeta}")
+    suspend fun getAll(
+        @Path("carpeta") carpeta: String
+    ): List<OrdenadorDto>
+
+    @GET("json/{carpeta}/{id}")
+    suspend fun getById(
+        @Path("carpeta") carpeta: String,
+        @Path("id") id: String
+    ): OrdenadorDto
+}
+
