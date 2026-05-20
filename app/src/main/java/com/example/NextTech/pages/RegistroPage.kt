@@ -20,13 +20,13 @@ import com.example.NextTech.viewmodels.RegistroViewModel
 @Composable
 fun RegistroPage(
     modifier: Modifier = Modifier,
-    viewModel: RegistroViewModel = viewModel(), // Cambiado al estándar sin Hilt
+    viewModel: RegistroViewModel = viewModel(),
     onNavigateToLogin: () -> Unit = {},
     onRegisterSuccess: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // Observamos el estado de éxito para navegar automáticamente
+
     LaunchedEffect(uiState.registroExitoso) {
         if (uiState.registroExitoso) {
             onRegisterSuccess()
@@ -38,15 +38,27 @@ fun RegistroPage(
             modifier = modifier.padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Registro(
-                onRegisterClicked = { usuario ->
-                    viewModel.registrar() 
-                },
-                onNavigateToLogin = onNavigateToLogin
-            )
+
+        Registro(
+            onRegisterClicked = { usuario ->
+                viewModel.onNombreChange(
+                    usuario.UsuarioNombre
+                )
+                viewModel.onEmailChange(
+                    usuario.UsuarioCorreo
+                )
+                viewModel.onContrasenhaChange(
+                    usuario.UsuarioContrasenha
+                )
+                viewModel.registrar()
+            },
+            onNavigateToLogin = onNavigateToLogin
+        )
+
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

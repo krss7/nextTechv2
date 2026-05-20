@@ -7,7 +7,7 @@ import com.example.NextTech.data.network.toOrdenador
 
 class OrdenadorRepository {
 
-    private val api = RetrofitClient.api
+    private val api = RetrofitClient.apiService
 
     suspend fun obtenerOrdenadores(): List<Ordenador> {
 

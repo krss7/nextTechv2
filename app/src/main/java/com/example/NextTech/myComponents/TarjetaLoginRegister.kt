@@ -35,10 +35,10 @@ import com.example.NextTech.data.UsuarioData
  */
 @Composable
 fun InicioSesion (
-    onLoginClicked : (correo: String, contrasenha: String) -> Unit,
+    onLoginClicked : (name: String, contrasenha: String) -> Unit,
     onNavigateToRegister : () -> Unit
 ){
-    var correo by remember { mutableStateOf("") }
+    var nombre by remember { mutableStateOf("") }
     var contrasenha by remember { mutableStateOf("") }
 
     Column(
@@ -55,12 +55,12 @@ fun InicioSesion (
             modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Correo", fontSize = 25.sp,)
+            Text(text = "Usuario", fontSize = 25.sp,)
             TextField(
-                value = correo,
-                onValueChange = { correo = it },
+                value = nombre,
+                onValueChange = { nombre = it },
                 modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
-                suffix = { Text(text = "@gmail.com") }
+                suffix = { Text(text = "(nombre)") }
             )
         }
 
@@ -79,8 +79,8 @@ fun InicioSesion (
 
         Boton(
             nombre = "Iniciar Sesión",
-            onClick = { onLoginClicked(correo, contrasenha) },
-            enabled = correo.isNotBlank() && contrasenha.isNotBlank()
+            onClick = { onLoginClicked(nombre, contrasenha) },
+            enabled = nombre.isNotBlank() && contrasenha.isNotBlank()
         )
 
         Spacer(modifier = Modifier.height(26.dp))
@@ -193,7 +193,11 @@ fun Registro(
         Boton(
             nombre = "Crear cuenta",
             onClick = { onRegisterClicked(datosUsuario) },
-            enabled = contrasenhasCoinciden && datosUsuario.UsuarioNombre.isNotBlank()
+            enabled =
+                contrasenhasCoinciden &&
+                datosUsuario.UsuarioNombre.isNotBlank() &&
+                datosUsuario.UsuarioCorreo.isNotBlank() &&
+                datosUsuario.UsuarioContrasenha.isNotBlank()
         )
         Spacer(modifier = Modifier.height(40.dp))
     }

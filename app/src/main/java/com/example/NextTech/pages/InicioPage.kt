@@ -16,7 +16,7 @@ import com.example.NextTech.viewmodels.InicioViewModel
 @Composable
 fun InicioPage(
     modifier: Modifier = Modifier,
-    viewModel: InicioViewModel = viewModel(), // Volvemos al estándar sin Hilt
+    viewModel: InicioViewModel = viewModel(),
     onNavigateToRegister: () -> Unit = {},
     onLoginSuccess: () -> Unit = {}
 ) {

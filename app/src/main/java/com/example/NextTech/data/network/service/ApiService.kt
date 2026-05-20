@@ -1,5 +1,6 @@
-package com.example.NextTech.data.network
+package com.example.NextTech.data.network.service
 
+import com.example.NextTech.data.DTO.OrdenadorDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -16,4 +17,3 @@ interface ApiService {
         @Path("id") id: String
     ): OrdenadorDto
 }
-

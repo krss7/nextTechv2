@@ -1,4 +1,4 @@
-package com.example.NextTech.data.network
+package com.example.NextTech.data.DTO
 
 import com.example.NextTech.data.Especificacion
 

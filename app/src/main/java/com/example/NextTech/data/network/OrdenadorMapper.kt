@@ -1,6 +1,7 @@
 package com.example.NextTech.data.network
 
 import com.example.NextTech.R
+import com.example.NextTech.data.DTO.OrdenadorDto
 import com.example.NextTech.data.Ordenador
 
 fun OrdenadorDto.toOrdenador(): Ordenador {
