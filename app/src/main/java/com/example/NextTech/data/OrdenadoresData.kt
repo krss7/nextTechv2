@@ -1,8 +1,6 @@
 package com.example.NextTech.data
 
 import com.example.NextTech.R
-import com.example.NextTech.data.Especificacion
-import com.example.NextTech.data.Ordenador
 
 /**
  * Una lista predefinida de objetos [Ordenador] que sirve como fuente de datos de la aplicación.
@@ -12,14 +10,11 @@ import com.example.NextTech.data.Ordenador
 val ordenadores = listOf(
     // Apple
     Ordenador(
-        id = 1,
+        id = "1",
         nombre = "Apple MacBook Air 13\" (M2)",
         imagenPrincipal = R.drawable.macbook_air_m2,
         especificaciones = listOf(
-            Especificacion(
-                "Procesador",
-                "Chip M2 de Apple con CPU de 8 núcleos y GPU de 8 núcleos"
-            ),
+            Especificacion("Procesador","Chip M2 de Apple con CPU de 8 núcleos y GPU de 8 núcleos"),
             Especificacion("Memoria RAM", "8 GB de memoria unificada (ampliable a 16 GB o 24 GB)"),
             Especificacion("Almacenamiento", "256 GB SSD (ampliable a 512 GB, 1 TB o 2 TB)"),
             Especificacion("Pantalla", "13,6 pulgadas Liquid Retina con True Tone, 500 nits"),
@@ -29,7 +24,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 2,
+        id = "2",
         nombre = "Apple MacBook Pro 14\" (M3 Pro)",
         imagenPrincipal = R.drawable.macbook_pro_14,
         especificaciones = listOf(
@@ -43,7 +38,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 3,
+        id = "3",
         nombre = "Apple MacBook Pro 16\" (M3 Max)",
         imagenPrincipal = R.drawable.macbook_pro_16,
         especificaciones = listOf(
@@ -59,7 +54,7 @@ val ordenadores = listOf(
 
     // Dell
     Ordenador(
-        id = 4,
+        id = "4",
         nombre = "Dell XPS 13 (9320)",
         imagenPrincipal = R.drawable.dell_xps_13_9320,
         especificaciones = listOf(
@@ -73,7 +68,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 5,
+        id = "5",
         nombre = "Dell XPS 15 (9530)",
         imagenPrincipal = R.drawable.dell_xps_15_9530,
         especificaciones = listOf(
@@ -87,7 +82,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 6,
+        id = "6",
         nombre = "Dell Alienware m16 R1 (Gaming)",
         imagenPrincipal = R.drawable.dell_alienware_m16_r1,
         especificaciones = listOf(
@@ -101,7 +96,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 7,
+        id = "7",
         nombre = "Dell Inspiron 15",
         imagenPrincipal = R.drawable.dell_inspiron_15,
         especificaciones = listOf(
@@ -117,7 +112,7 @@ val ordenadores = listOf(
 
     // HP
     Ordenador(
-        id = 8,
+        id = "8",
         nombre = "HP Spectre x360 14",
         imagenPrincipal = R.drawable.hp_spectre_14,
         especificaciones = listOf(
@@ -131,7 +126,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 9,
+        id = "9",
         nombre = "HP Envy 16",
         imagenPrincipal = R.drawable.hp_envy_16,
         especificaciones = listOf(
@@ -145,7 +140,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 10,
+        id = "10",
         nombre = "HP Omen Transcend 16 (Gaming)",
         imagenPrincipal = R.drawable.hp_omen_trascend_16,
         especificaciones = listOf(
@@ -159,7 +154,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 11,
+        id = "11",
         nombre = "HP Pavilion Aero 13",
         imagenPrincipal = R.drawable.hp_pavilion_aero_13,
         especificaciones = listOf(
@@ -175,7 +170,7 @@ val ordenadores = listOf(
 
     // Lenovo
     Ordenador(
-        id = 12,
+        id = "12",
         nombre = "Lenovo ThinkPad X1 Carbon Gen 11",
         imagenPrincipal = R.drawable.lenovo_thinkpad_x1_carbon_gen_11,
         especificaciones = listOf(
@@ -189,7 +184,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 13,
+        id = "13",
         nombre = "Lenovo Yoga 9i (14\")",
         imagenPrincipal = R.drawable.lenovo_yoga_9i_14,
         especificaciones = listOf(
@@ -203,7 +198,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 14,
+        id = "14",
         nombre = "Lenovo Legion Pro 7i Gen 8 (Gaming)",
         imagenPrincipal = R.drawable.lenovo_legion_pro_7i_gen_8,
         especificaciones = listOf(
@@ -217,7 +212,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 15,
+        id = "15",
         nombre = "Lenovo IdeaPad Slim 5",
         imagenPrincipal = R.drawable.lenovo_ideapad_slim5,
         especificaciones = listOf(
@@ -233,7 +228,7 @@ val ordenadores = listOf(
 
     // Asus
     Ordenador(
-        id = 16,
+        id = "16",
         nombre = "Asus ROG Zephyrus G14 (Gaming)",
         imagenPrincipal = R.drawable.asus_rog_zephyrus_g14,
         especificaciones = listOf(
@@ -247,7 +242,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 17,
+        id = "17",
         nombre = "Asus Zenbook 14 OLED",
         imagenPrincipal = R.drawable.asus_zenbook_14_oled,
         especificaciones = listOf(
@@ -261,7 +256,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 18,
+        id = "18",
         nombre = "Asus ProArt Studiobook 16",
         imagenPrincipal = R.drawable.asus_proart_studiobook_16_oled,
         especificaciones = listOf(
@@ -275,7 +270,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 19,
+        id = "19",
         nombre = "Asus TUF Gaming A15",
         imagenPrincipal = R.drawable.asus_tuf_gaming_a15,
         especificaciones = listOf(
@@ -291,7 +286,7 @@ val ordenadores = listOf(
 
     // Acer
     Ordenador(
-        id = 20,
+        id = "20",
         nombre = "Acer Swift Go 14",
         imagenPrincipal = R.drawable.acer_swift_go_14,
         especificaciones = listOf(
@@ -305,7 +300,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 21,
+        id = "21",
         nombre = "Acer Predator Helios 16 (Gaming)",
         imagenPrincipal = R.drawable.acer_predator_helios_16,
         especificaciones = listOf(
@@ -319,7 +314,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 22,
+        id = "22",
         nombre = "Acer Aspire 5",
         imagenPrincipal = R.drawable.acer_aspire_5,
         especificaciones = listOf(
@@ -335,7 +330,7 @@ val ordenadores = listOf(
 
     // Microsoft
     Ordenador(
-        id = 23,
+        id = "23",
         nombre = "Microsoft Surface Laptop 5",
         imagenPrincipal = R.drawable.microsoft_surface_laptop_5,
         especificaciones = listOf(
@@ -349,7 +344,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 24,
+        id = "24",
         nombre = "Microsoft Surface Laptop Studio 2",
         imagenPrincipal = R.drawable.microsoft_surface_laptop_studio_2,
         especificaciones = listOf(
@@ -365,7 +360,7 @@ val ordenadores = listOf(
 
     // Razer
     Ordenador(
-        id = 25,
+        id = "25",
         nombre = "Razer Blade 15 (Gaming)",
         imagenPrincipal = R.drawable.razer_blade_15,
         especificaciones = listOf(
@@ -379,7 +374,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 26,
+        id = "26",
         nombre = "Razer Blade 18 (Gaming)",
         imagenPrincipal = R.drawable.razer_blade_18,
         especificaciones = listOf(
@@ -395,7 +390,7 @@ val ordenadores = listOf(
 
     // MSI
     Ordenador(
-        id = 27,
+        id = "27",
         nombre = "MSI Titan GT77 HX (Gaming)",
         imagenPrincipal = R.drawable.msi_titan_gt77_hx_gaming,
         especificaciones = listOf(
@@ -409,7 +404,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 28,
+        id = "28",
         nombre = "MSI Katana 15 (Gaming)",
         imagenPrincipal = R.drawable.msi_katana_15,
         especificaciones = listOf(
@@ -423,7 +418,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 29,
+        id = "29",
         nombre = "MSI Prestige 14 Evo",
         imagenPrincipal = R.drawable.msi_prestige_14_evo,
         especificaciones = listOf(
@@ -439,7 +434,7 @@ val ordenadores = listOf(
 
     // Samsung
     Ordenador(
-        id = 30,
+        id = "30",
         nombre = "Samsung Galaxy Book3 Ultra",
         imagenPrincipal = R.drawable.samsung_galaxy_book3_ultra,
         especificaciones = listOf(
@@ -453,7 +448,7 @@ val ordenadores = listOf(
         )
     ),
     Ordenador(
-        id = 31,
+        id = "31",
         nombre = "Samsung Galaxy Book3 Pro 360",
         imagenPrincipal = R.drawable.samsung_galaxy_book3_pro_360,
         especificaciones = listOf(

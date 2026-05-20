@@ -18,7 +18,7 @@ import com.example.NextTech.viewmodels.DetallesViewModel
 fun DetallesPage(
     modifier: Modifier = Modifier,
     ordenadorId: Int,
-    viewModel: DetallesViewModel = viewModel(), // Cambiado a estándar
+    viewModel: DetallesViewModel = viewModel(),
     onNavigateBack: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsState()

@@ -61,19 +61,9 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
-
-    // Coil
-    implementation(libs.coil.compose)
-
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

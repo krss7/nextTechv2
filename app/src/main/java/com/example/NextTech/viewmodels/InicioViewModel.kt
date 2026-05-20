@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 
 class InicioViewModel : ViewModel() {
 
-    // Instanciamos directamente para no depender de Hilt
     private val ordenadorRepository = OrdenadorRepository()
 
     private val _uiState = MutableStateFlow(InicioUiState())
@@ -36,8 +35,7 @@ class InicioViewModel : ViewModel() {
 
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
-            
-            // SIMULACIÓN: Siempre permite el login para que puedas probar la app
+
             _uiState.update { it.copy(isLoading = false) }
             onSuccess()
         }

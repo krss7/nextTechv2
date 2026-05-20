@@ -31,8 +31,8 @@ import com.example.NextTech.data.ordenadores
  */
 @Composable
 fun Detalles(ordenadorId: Int) {
-    val ordenador = ordenadores.find { it.id == ordenadorId }
-    // Muestra un mensaje si el ordenador no se encuentra.
+    val ordenador = ordenadores.find { it.id == ordenadorId.toString() }
+
     if (ordenador == null) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -41,9 +41,9 @@ fun Detalles(ordenadorId: Int) {
         ) {
             Text("Producto no encontrado", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
-        return // Detiene la ejecución si no hay ordenador
+        return
     }
-    // Si el ordenador se encuentra, muestra sus detalles.
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -53,22 +53,22 @@ fun Detalles(ordenadorId: Int) {
     ) {
         // --- SECCIÓN DE LA IMAGEN Y NOMBRE DEL PRODUCTO ---
         Image(
-            painter = painterResource(id = ordenador.imagenPrincipal), // Usa la imagen del ordenador encontrado
-            contentDescription = ordenador.nombre, // Usa el nombre para la accesibilidad
+            painter = painterResource(id = ordenador.imagenPrincipal),
+            contentDescription = ordenador.nombre,
             modifier = Modifier
                 .fillMaxWidth(0.8f)
                 .height(200.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = ordenador.nombre, // Usa el nombre del ordenador encontrado
+            text = ordenador.nombre,
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(32.dp))
 
         // --- SECCIÓN DE LA TABLA DE ESPECIFICACIONES ---
-        // PASO 4: Pasa la lista de especificaciones del ordenador encontrado a la tabla.
+
         TablaEspecificaciones(especificaciones = ordenador.especificaciones)
     }
 }

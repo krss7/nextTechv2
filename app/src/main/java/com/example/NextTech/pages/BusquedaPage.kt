@@ -20,7 +20,7 @@ import com.example.NextTech.viewmodels.BusquedaViewModel
 @Composable
 fun BusquedaPage(
     modifier: Modifier = Modifier,
-    viewModel: BusquedaViewModel = viewModel(), // Cambiado al estándar sin Hilt
+    viewModel: BusquedaViewModel = viewModel(),
     onNavigateToDetails: (Int) -> Unit = {},
     onNavigateToHome: () -> Unit = {},
     onNavigateToSearch: () -> Unit = {},

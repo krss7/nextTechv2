@@ -42,7 +42,7 @@ fun ListVertical(
         items(productosFiltrados) { producto ->
             TarjetaHorizontal(
                 ordenador = producto, 
-                onClick = { onItemClick(producto.id) }
+                onClick = { onItemClick(producto.id.toInt()) }
             )
         }
     }
@@ -67,7 +67,7 @@ fun ListHorizontal(
               items(ordenadores) { ordenador ->
                   TarjetaVertical(
                       ordenador = ordenador, 
-                      onClick = { onItemClick(ordenador.id) }
+                      onClick = { onItemClick(ordenador.id.toInt()) }
                   )
               }
          }

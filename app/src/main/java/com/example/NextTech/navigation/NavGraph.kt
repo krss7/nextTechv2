@@ -48,7 +48,7 @@ fun NavGraph(navController: NavHostController) {
         composable(Screen.Principal.route) {
             PrincipalPage(
                 onNavigateToDetails = { id ->
-                    navController.navigate(Screen.Detalles.createRoute(id))
+                    navController.navigate(Screen.Detalles.createRoute(id.toString()))
                 },
                 onNavigateToSearch = {
                     navController.navigate(Screen.Busqueda.route) {
@@ -66,7 +66,7 @@ fun NavGraph(navController: NavHostController) {
         composable(Screen.Busqueda.route) {
             BusquedaPage(
                 onNavigateToDetails = { id ->
-                    navController.navigate(Screen.Detalles.createRoute(id))
+                    navController.navigate(Screen.Detalles.createRoute(id.toString()))
                 },
                 onNavigateToHome = {
                     navController.navigate(Screen.Principal.route) {
