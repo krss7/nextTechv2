@@ -1,5 +1,7 @@
 package com.example.NextTech.viewmodels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.NextTech.repository.OrdenadorRepository
@@ -10,9 +12,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import com.example.NextTech.repository.AuthRepository
+import com.example.NextTech.data.local.SessionManager
 
-class InicioViewModel : ViewModel() {
+class InicioViewModel(
+    application: Application
+) : AndroidViewModel(application) {
 
+    private val sessionManager = SessionManager(application)
     private val ordenadorRepository = OrdenadorRepository()
     private val authRepository = AuthRepository()
 
@@ -52,8 +58,14 @@ class InicioViewModel : ViewModel() {
                     it.copy(
                         isLoading = true, error = null)
                 }
-                authRepository.login(
-                    name = name, passwd = pass)
+               val response = authRepository.login(
+                    name = name, passwd = pass
+                )
+                sessionManager.saveSession(
+                    id = response.id,
+                    name = response.name,
+                    email = response.email
+                )
 
                 _uiState.update {
                     it.copy(isLoading = false)

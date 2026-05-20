@@ -1,6 +1,9 @@
 package com.example.NextTech.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,12 +15,25 @@ import com.example.NextTech.pages.InicioPage
 import com.example.NextTech.pages.PerfilPage
 import com.example.NextTech.pages.PrincipalPage
 import com.example.NextTech.pages.RegistroPage
+import com.example.NextTech.viewmodels.SplashViewModel
 
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(
+    navController: NavHostController
+) {
+
+    val splashViewModel: SplashViewModel = viewModel()
+
+    val isLoggedIn by splashViewModel
+        .isLoggedIn
+        .collectAsState()
+
     NavHost(
         navController = navController,
-        startDestination = Screen.Inicio.route
+        startDestination = if (isLoggedIn)
+            Screen.Principal.route
+        else
+            Screen.Inicio.route
     ) {
         composable(Screen.Inicio.route) {
             InicioPage(

@@ -38,7 +38,7 @@ fun PerfilPage(
             ButtomAppBarNav(
                 onHomeClick = onNavigateToHome,
                 onSearchClick = onNavigateToSearch,
-                onProfileClick = { /* Ya estamos en Perfil */ },
+                onProfileClick = { },
             )
         }
     ) { innerPadding ->
@@ -48,7 +48,12 @@ fun PerfilPage(
         ) {
             Perfil(
                 nombreUsuarioInicial = uiState.nombreUsuario,
-                correoInicial = uiState.email
+                correoInicial = uiState.email,
+                onLogout = {
+                    viewModel.logout {
+                        onLogout()
+                        }
+                    }
             )
         }
     }

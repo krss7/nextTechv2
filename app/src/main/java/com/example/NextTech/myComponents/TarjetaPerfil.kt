@@ -56,10 +56,13 @@ import com.example.NextTech.R
 @Composable
 fun Perfil(
     nombreUsuarioInicial: String = "Nombre Usuario",
-    correoInicial: String = "hello@reallygreatsite.com"
+    correoInicial: String = "hello@reallygreatsite.com",
+    onLogout: () -> Unit = {}
 ){
-    var nombreUsuario by remember { mutableStateOf(nombreUsuarioInicial) }
-    var correo by remember { mutableStateOf(correoInicial) }
+    val nombreUsuario = nombreUsuarioInicial
+    var correo by remember(correoInicial) {
+        mutableStateOf(correoInicial)
+    }
     var nuevaContrasenha by remember { mutableStateOf("") }
     var repetirContrasenha by remember { mutableStateOf("") }
     val contrasenhasCoinciden = nuevaContrasenha == repetirContrasenha
@@ -67,28 +70,28 @@ fun Perfil(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()) // Permite hacer scroll si el contenido no cabe
-            .padding(horizontal = 24.dp, vertical = 32.dp),
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 14.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         Box(modifier = Modifier.padding(bottom = 16.dp)) {
 
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground), // Reemplaza con tu imagen
+                painter = painterResource(id = R.drawable.ic_launcher_foreground),
                 contentDescription = "Foto de perfil",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(140.dp)
+                    .size(100.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
             )
 
             IconButton(
-                onClick = { /* TODO: Lógica para cambiar la foto de perfil */ },
+                onClick = { },
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .offset(x = 10.dp, y = 10.dp) // Ajusta el offset para que no esté pegado
+                    .offset(x = 10.dp, y = 10.dp)
                     .background(
                         MaterialTheme.colorScheme.surface,
                         CircleShape
@@ -104,7 +107,7 @@ fun Perfil(
         ) {
             Text(text = nombreUsuario, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.width(8.dp))
-            IconButton(onClick = { /* TODO: Lógica para editar el nombre de usuario (ej. abrir un dialogo) */ }) {
+            IconButton(onClick = {  }) {
                 Icon(Icons.Default.Edit, contentDescription = "Editar nombre de usuario")
             }
         }
@@ -116,11 +119,11 @@ fun Perfil(
             value = correo,
             onValueChange = { correo = it },
             modifier = Modifier.fillMaxWidth(),
-            readOnly = false // O puedes ponerlo en true y habilitarlo al pulsar un botón
+            readOnly = false
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(
-            onClick = { /* TODO: Lógica para actualizar el correo */ },
+            onClick = {  },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Actualizar correo")
@@ -157,9 +160,19 @@ fun Perfil(
         }
         Spacer(modifier = Modifier.height(24.dp))
 
-        Boton("Actualizar contraseña", onClick = { /* TODO: Lógica para actualizar la contraseña */ },
+        Boton("Actualizar contraseña", onClick = {  },
             enabled = contrasenhasCoinciden && nuevaContrasenha.isNotEmpty())
-    }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = onLogout,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Cerrar sesión")
+
+        }
+   }
 }
 
     @Preview
