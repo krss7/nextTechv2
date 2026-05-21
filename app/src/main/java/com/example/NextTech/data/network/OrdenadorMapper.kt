@@ -1,9 +1,9 @@
 package com.example.NextTech.data.network
 
-import com.example.NextTech.data.DTO.OrdenadorDto
+import com.example.NextTech.data.DTO.OrdenadorDTO
 import com.example.NextTech.data.Ordenador
 
-fun OrdenadorDto.toOrdenador(): Ordenador {
+fun OrdenadorDTO.toOrdenador(): Ordenador {
 
     return Ordenador(
 

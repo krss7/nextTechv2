@@ -32,7 +32,7 @@ fun TablaEspecificaciones(especificaciones: List<Especificacion>) {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
-        // --- Fila de la Cabecera ---
+        // -Fila de la Cabecera -
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -55,8 +55,8 @@ fun TablaEspecificaciones(especificaciones: List<Especificacion>) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(backgroundColor) // Aplica el fondo alterno
-                    .padding(vertical = 12.dp), // Aumenta el espaciado vertical
+                    .background(backgroundColor)
+                    .padding(vertical = 12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 TableCell(text = especificacion.nombre, weight = 0.4f)
@@ -87,7 +87,7 @@ fun RowScope.TableCell(
         text = text,
         modifier = Modifier
             .weight(weight)
-            .padding(horizontal = 8.dp), // Solo padding horizontal
+            .padding(horizontal = 8.dp),
         fontWeight = if (isHeader) FontWeight.Bold else FontWeight.Normal,
         fontSize = 14.sp,
         color = if (isHeader) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant

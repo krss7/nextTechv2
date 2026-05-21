@@ -2,7 +2,7 @@ package com.example.NextTech.data.DTO
 
 import com.example.NextTech.data.Especificacion
 
-data class OrdenadorDto(
+data class OrdenadorDTO(
     val id: String,
     val nombre: String,
     val imagenPrincipal: String,

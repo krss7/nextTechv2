@@ -72,5 +72,5 @@ fun Detalles(
 @Preview
 @Composable
 fun DetallesPreview() {
-  //  Detalles(imagenUrl = " ")
+  
 }

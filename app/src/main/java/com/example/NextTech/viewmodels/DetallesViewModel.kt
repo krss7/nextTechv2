@@ -3,7 +3,6 @@ package com.example.NextTech.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.NextTech.data.Ordenador
 import com.example.NextTech.repository.OrdenadorRepository
 import com.example.NextTech.uiState.DetallesUiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,10 +36,6 @@ class DetallesViewModel(
         }
     }
 }
-
-data class DetallesUiState(
-    val ordenador: Ordenador? = null
-)
 
 class DetallesViewModelFactory(
     private val ordenadorId: String,

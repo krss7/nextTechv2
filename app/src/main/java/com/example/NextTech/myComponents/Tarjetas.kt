@@ -85,16 +85,7 @@ fun TarjetaHorizontal(ordenador: Ordenador, onClick: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun TarjetaVerticalPreview() {/*
-    TarjetaVertical(
-        ordenador = Ordenador(
-            id = "1",
-            imagenPrincipal = R.drawable.macbook_air_m2,
-            nombre = "Apple MacBook Air 13\" (M2)",
-            especificaciones = emptyList()
-        ),
-        onClick = { }
-    ) */
+fun TarjetaVerticalPreview() {
 }
 
 
@@ -102,16 +93,7 @@ fun TarjetaVerticalPreview() {/*
 
 @Preview(showBackground = true)
 @Composable
-fun TarjetaHorizontalPreview() {/*
-    TarjetaHorizontal(
-    ordenador = Ordenador(
-    id = "1",
-    imagenPrincipal = R.drawable.macbook_air_m2,
-    nombre = "Apple MacBook Air 13\" (M2)",
-    especificaciones = emptyList()
-    ),
-    onClick = { }
-) */
+fun TarjetaHorizontalPreview() {
 }
 
 
