@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -25,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -57,12 +59,28 @@ import com.example.NextTech.R
 fun Perfil(
     nombreUsuarioInicial: String = "Nombre Usuario",
     correoInicial: String = "hello@reallygreatsite.com",
+    onUpdateUser: (
+        String,
+        String,
+        String
+    ) -> Unit = { _, _, _ -> },
+
     onLogout: () -> Unit = {}
-){
-    val nombreUsuario = nombreUsuarioInicial
-    var correo by remember(correoInicial) {
-        mutableStateOf(correoInicial)
+) {
+    var nombreUsuario by remember { mutableStateOf("") }
+
+    var editandoNombre by remember { mutableStateOf(false) }
+
+    var correo by remember { mutableStateOf("") }
+
+    LaunchedEffect(
+        nombreUsuarioInicial,
+        correoInicial
+    ) {
+        nombreUsuario = nombreUsuarioInicial
+        correo = correoInicial
     }
+
     var nuevaContrasenha by remember { mutableStateOf("") }
     var repetirContrasenha by remember { mutableStateOf("") }
     val contrasenhasCoinciden = nuevaContrasenha == repetirContrasenha
@@ -90,93 +108,119 @@ fun Perfil(
             IconButton(
                 onClick = { },
                 modifier = Modifier
-                    .align(Alignment.BottomEnd)
+               .align(Alignment.BottomEnd)
                     .offset(x = 10.dp, y = 10.dp)
                     .background(
-                        MaterialTheme.colorScheme.surface,
-                        CircleShape
+                        MaterialTheme.colorScheme.surface,CircleShape
                     )
+              )
+            {
+                Icon(Icons.Default.Person, contentDescription = "perfil")
+            }
+        }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(bottom = 16.dp)
             ) {
-                Icon(Icons.Default.Edit, contentDescription = "Editar foto de perfil")
+                if (editandoNombre) {
+                    TextField(
+                        value = nombreUsuario, onValueChange = {
+                            nombreUsuario = it
+                        },
+                        singleLine = true,
+                        modifier = Modifier.width(200.dp)
+                    )
+                } else {
+                    Text(
+                        text = nombreUsuario, fontSize = 20.sp, fontWeight = FontWeight.SemiBold
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                IconButton(
+                    onClick = {
+                        if (editandoNombre) {
+                            onUpdateUser(nombreUsuario, correo, nuevaContrasenha)
+                        }
+                        editandoNombre = !editandoNombre
+                    }
+                ) {
+                    Icon(Icons.Default.Edit, contentDescription = "Editar nombre de usuario")
+                }
             }
-        }
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-            Text(text = nombreUsuario, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
-            Spacer(modifier = Modifier.width(8.dp))
-            IconButton(onClick = {  }) {
-                Icon(Icons.Default.Edit, contentDescription = "Editar nombre de usuario")
-            }
-        }
-
-        Text(
-            "Correo electrónico", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Start)
-        Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value = correo,
-            onValueChange = { correo = it },
-            modifier = Modifier.fillMaxWidth(),
-            readOnly = false
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = {  },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Actualizar correo")
-        }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        Text("Contraseña", fontSize = 22.sp, fontWeight = FontWeight.Bold)
-        Spacer(modifier = Modifier.height(16.dp))
-
-        CampoContrasenha(
-            valor = nuevaContrasenha,
-            onValorCambiado = { nuevaContrasenha = it },
-            label = "Nueva contraseña"
-
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-
-        CampoContrasenha(
-            valor = repetirContrasenha,
-            onValorCambiado = { repetirContrasenha = it },
-            label = "Repetir contraseña",
-            esError = !contrasenhasCoinciden && repetirContrasenha.isNotEmpty()
-        )
-
-        if (!contrasenhasCoinciden && repetirContrasenha.isNotEmpty()) {
             Text(
-                text = "Las contraseñas no coinciden",
-                color = MaterialTheme.colorScheme.error,
-                modifier = Modifier.padding(top = 4.dp),
-                textAlign = TextAlign.Start,
-                fontSize = 12.sp
+                "Correo electrónico",
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextField(
+                value = correo,
+                onValueChange = { correo = it },
+                modifier = Modifier.fillMaxWidth(),
+                readOnly = false
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = {
+                    onUpdateUser(nombreUsuario, correo, nuevaContrasenha)
+                },
+
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Actualizar correo")
+            }
+
+            Spacer(modifier = Modifier.height(48.dp))
+
+            CampoContrasenha(
+                valor = nuevaContrasenha,
+                onValorCambiado = { nuevaContrasenha = it },
+                label = "Nueva contraseña"
+
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            CampoContrasenha(
+                valor = repetirContrasenha,
+                onValorCambiado = { repetirContrasenha = it },
+                label = "Repetir contraseña",
+                esError = !contrasenhasCoinciden && repetirContrasenha.isNotEmpty()
+            )
+
+            if (!contrasenhasCoinciden && repetirContrasenha.isNotEmpty()) {
+                Text(
+                    text = "Las contraseñas no coinciden",
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(top = 4.dp),
+                    textAlign = TextAlign.Start,
+                    fontSize = 12.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Boton(
+                "Actualizar contraseña", onClick = {
+                    onUpdateUser(nombreUsuario, correo, nuevaContrasenha)
+                },
+                enabled = contrasenhasCoinciden && nuevaContrasenha.isNotEmpty()
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Button(
+                onClick = onLogout,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Cerrar sesión")
+
+            }
         }
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Boton("Actualizar contraseña", onClick = {  },
-            enabled = contrasenhasCoinciden && nuevaContrasenha.isNotEmpty())
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = onLogout,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Cerrar sesión")
-
-        }
-   }
-}
-
-    @Preview
-    @Composable
-    fun PerfilPreview() {
-        Perfil()
     }
+
+@Preview
+@Composable
+fun PerfilPreview() {
+    Perfil()
+}

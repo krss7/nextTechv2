@@ -49,6 +49,11 @@ fun PerfilPage(
             Perfil(
                 nombreUsuarioInicial = uiState.nombreUsuario,
                 correoInicial = uiState.email,
+                onUpdateUser = { nombre, email, passwd ->
+                    viewModel.updateUser(name = nombre, email = email, passwd = passwd) {
+                        println("Usuario actualizado")
+                    }
+                },
                 onLogout = {
                     viewModel.logout {
                         onLogout()

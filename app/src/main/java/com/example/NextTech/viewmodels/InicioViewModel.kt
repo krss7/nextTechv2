@@ -60,10 +60,7 @@ class InicioViewModel(
                val response = authRepository.login(
                     name = name, passwd = pass
                 )
-                sessionManager.saveSession(
-                    id = response.id,
-                    name = response.name,
-                    email = response.email
+                sessionManager.saveSession(id = response.id, name = response.name, email = response.email, passwd = pass
                 )
 
                 _uiState.update {

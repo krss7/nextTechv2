@@ -30,13 +30,13 @@ class SessionManager(
 
         val USER_EMAIL =
             stringPreferencesKey("user_email")
+
+        val USER_PASSWORD =
+            stringPreferencesKey("user_password")
+
     }
 
-    suspend fun saveSession(
-        id: String,
-        name: String,
-        email: String
-    ) {
+    suspend fun saveSession(id: String, name: String, email: String, passwd: String) {
 
         context.dataStore.edit { prefs ->
 
@@ -44,6 +44,7 @@ class SessionManager(
             prefs[USER_ID] = id
             prefs[USER_NAME] = name
             prefs[USER_EMAIL] = email
+            prefs[USER_PASSWORD] = passwd
         }
     }
 
@@ -68,4 +69,17 @@ class SessionManager(
         context.dataStore.data.map {
             it[USER_EMAIL] ?: ""
         }
+
+    val userId: Flow<String> =
+        context.dataStore.data.map {
+            it[USER_ID] ?: ""
+        }
+
+    val userPassword: Flow<String> =
+        context.dataStore.data.map {
+
+            it[USER_PASSWORD] ?: ""
+        }
+
+
 }
